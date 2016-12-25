@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="../Mobile/jquery-3.1.1.min.js"></script>
+</head>
+<body>
+    <span></span>
+</body>
+     <script>
+          var i=0;
+          var time = setInterval(function(){
+              i=i+10;
+              $("span").text(i+"%");
+              if(i==100){
+                 clearInterval(time);
+              }
+          },600)
+    </script>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登陆面板</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-inverse" role="navigation">
+      <div class="container-fluid" id="menuBar">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-9">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Brand</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="menus">
+          <ul class="nav navbar-nav">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+    <main class="container">
+         <form action="" class="form-horizontal" onsubmit="return false">
+             <div class="form-group">
+                <label for="username" class="col-sm-2 control-label">姓名</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="username" placeholder="姓名">
+                </div>
+             </div>
+             <div class="form-group">
+                <label for="sex" class="col-sm-2 control-label">性别</label>
+                  <label class="checkbox-inline">
+                      <input type="radio" name="sex" value="男"> 男
+                  </label>
+                  <label class="checkbox-inline">
+                      <input type="radio" name="sex" value="女"> 女
+                  </label>
+             </div>
+             <div class="form-group">
+                 <div class="col-sm-offset-2 col-sm-2">
+                     <button class="btn btn-primary" id="btnSave">
+                         保存
+                     </button>
+                 </div>
+             </div>             
+         </form>
+         
+         <div class="row">
+             <div class="col-sm-offset-2 col-sm-10">
+                 <table class="table table-bordered">
+                     <thead>
+                         <tr>
+                            <td>
+                               编号
+                            </td>
+                             <td>
+                               姓名
+                             </td>
+                             <td>
+                               性别
+                             </td>
+                         </tr>
+                     </thead>
+                     <tbody  id="tbody">
+                     
+                     </tbody>
+                 </table>
+              
+             </div>
+         </div>
+         
+        <button class="btn btn-primary" id="btnCenter">居中</button>
+    </main>
+    <style>
+        .navbar {
+            border-radius : 0px;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            
+            $('#menus li').on("click", function() {
+                $('#menus li.active').removeClass('active');
+                $(this).addClass('active')
+            })
+            
+            $('#btnCenter').on('click', function() {
+                var menuBar = $('#menuBar');
+                if(menuBar.hasClass('container')) {
+                    menuBar.addClass('container-fluid')
+                    menuBar.removeClass('container')
+                    $(this).text('居中')
+                } else {
+                    menuBar.addClass('container')
+                    menuBar.removeClass('container-fluid')
+                    $(this).text('全屏')
+                }
+            })
+            
+            var num = 1
+            $('#btnSave').on('click', function() {
+                var username = $('#username').val(),
+                    sex = $('[name=sex]:checked').val();
+                var row = $('<tr></tr>'),
+                    ntd = $('<td></td>').text(num),
+                    utd = $('<td></td>').text(username),
+                    std = $('<td></td>').text(sex);
+                row.appendTo('#tbody');
+                ntd.appendTo(row)
+                utd.appendTo(row)
+                std.appendTo(row)
+                num ++;
+            })
+            
+        });
+    </script>
+</body>
+
+</html>

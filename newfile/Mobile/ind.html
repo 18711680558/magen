@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>控制台</title>
+    <link rel="stylesheet" href="../Mobile/bootstrap-3.3.0-dist/dist/css/bootstrap.css">
+    <script src="../Mobile/jquery-3.1.1.min.js"></script>
+    <script src="../Mobile/bootstrap-3.3.0-dist/dist/js/bootstrap.min.js"></script>
+    <style>
+        a:link,a:visited{
+          text-decoration:none;  /*超链接无下划线*/
+        }
+        .nav-row{
+            width: 1349px;
+            background-color: black; 
+            position: fixed;
+            z-index: 1;
+            
+        }
+        .nav-row-name{
+            height:50px;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 50px;
+        }
+        .nav-right-row{
+            height:50px;
+            line-height: 50px;
+            text-align: center;
+        }
+        .search{
+            height:30px;
+            border-radius: 6px;
+            outline: none;
+            border:0px;
+            text-indent: 5px;
+        }
+/*
+        .main-row{
+            width:100%;
+            position: relative;
+        }
+*/
+        .main-right{
+            width:100%;
+            height:auto;
+            border-bottom: 1px solid #ccc;
+            margin:0px auto;
+            margin-top:120px;
+        }
+        .main-r{
+           width:200px;
+           height:200px;
+           border-radius: 50%;
+           margin:0px auto;
+           margin-top:30px;
+        }
+        .main-r-l{
+            background-color: cornflowerblue;
+        }
+        .main-r-n{
+            background-color: aqua;
+        }
+        .main-table{
+            
+            margin-top:80px;
+        }
+        .col-left{
+            margin-top:50px;
+            padding: 0px 0px;
+        }
+        .list-left{
+            background-color: #ccc;
+            padding-top: 25px;
+            width:224px;
+            position: fixed;
+            z-index:1;
+           
+        }
+        .list-left>li{
+           background-color: #ccc; 
+           border:none;
+            text-align: left;
+        }
+        .list-left>li:hover{
+            background-color: antiquewhite;
+        }
+        .nav-d{
+            width:60%;
+            padding: 0px;
+            position: absolute;
+            list-style: none;
+            background-color: black;
+            color: aqua;
+            text-align: center;
+           
+        }
+        .nav-d li{
+            width:100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row nav-row">
+            <div class="col-lg-4 nav-row-name">名字</div>
+            <div class="col-lg-8">
+                <div class="row nav-right-row">
+                    <div class="col-lg-4">
+                        <input type="text" class="search">
+                    </div>
+                    <div class="col-lg-2 nav-l"><a href="#">我的物品</a>
+                        <ul class="nav-d" hidden>
+                            <li><a href="#">消息</a></li>
+                            <li><a href="#">待处理订单</a></li>
+                            <li><a href="#">我的关注</a></li>
+                            <li><a href="#">我的关注</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-2 nav-l"><a href="#">客户服务</a>
+                        <ul class="nav-d" hidden>
+                            <li><a href="#">帮助中心</a></li>
+                            <li><a href="#">售后服务</a></li>
+                            <li><a href="#">在线客服</a></li>
+                            <li><a href="#">意见建议</a></li>
+                            <li><a href="#">客服邮箱</a></li>
+                        </ul> 
+                    </div>
+                    <div class="col-lg-2 nav-l"><a href="#">生活服务</a>
+                         <ul class="nav-d" hidden>
+                            <li><a href="#">服务市场</a></li>
+                            <li><a href="#">乡村招募</a></li>
+                            <li><a href="#">校园加盟</a></li>
+                            <li><a href="#">办公生活馆</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-2 nav-l"><a href="#">更多精彩</a>
+                         <ul class="nav-d" hidden>
+                            <li><a href="#">服务市场</a></li>
+                            <li><a href="#">乡村招募</a></li>
+                            <li><a href="#">校园加盟</a></li>
+                            <li><a href="#">办公生活馆</a></li>
+                        </ul> 
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row main-row">
+            <div class="col-lg-2 col-left">
+                <ul class="list-group list-left" id="tck">
+                    <li class="list-group-item" data-container=".container-fluid" data-toggle="popover" data-placement="right" data-content="你好，世界！">清洁用品</li>
+                    <li class="list-group-item" data-container=".container-fluid" data-toggle="popover" data-placement="right" data-content="你好，世界！">家用电器</li>
+                    <li class="list-group-item" data-container=".container-fluid" data-toggle="popover" data-placement="right" data-content="你好，世界！">电脑办公</li>
+                    <li class="list-group-item" data-container=".container-fluid" data-toggle="popover" data-placement="right" data-content="你好，世界！">个护化妆</li>
+                    <li class="list-group-item" data-container=".container-fluid" data-toggle="popover" data-placement="right" data-content="你好，世界！">医疗保健</li>
+                    <li class="list-group-item" data-container=".container-fluid" data-toggle="popover" data-placement="right" data-content="你好，世界！">男装</li>
+                    <li class="list-group-item" data-container=".container-fluid" data-toggle="popover" data-placement="right" data-content="你好，世界！">女装</li>
+                    <li class="list-group-item" data-container=".container-fluid" data-toggle="popover" data-placement="right" data-content="你好，世界！">运动</li>
+                    <li class="list-group-item" data-container=".container-fluid" data-toggle="popover" data-placement="right" data-content="你好，世界！">手机</li>
+                    <li class="list-group-item" data-container=".container-fluid" data-toggle="popover" data-placement="right" data-content="你好，世界！">母婴</li>
+                    <li class="list-group-item" data-container=".container-fluid" data-toggle="popover" data-placement="right" data-content="你好，世界！">汽车</li>
+                    <li class="list-group-item" data-container=".container-fluid" data-toggle="popover" data-placement="right" data-content="你好，世界！">食品</li>
+                    <li class="list-group-item" data-container=".container-fluid" data-toggle="popover" data-placement="right" data-content="你好，世界！">酒类</li>
+                    <li class="list-group-item" data-container=".container-fluid" data-toggle="popover" data-placement="right" data-content="你好，世界！">机票</li>
+                    <li class="list-group-item" data-container=".container-fluid" data-toggle="popover" data-placement="right" data-content="你好，世界！"></li>
+                </ul>
+                
+            </div>
+            <div class="col-lg-10">
+                <p class="main-right"></p>
+                <div class="row">
+                    <div class="col-lg-3"><div class="main-r main-r-l" data-toggle="modal" data-target="#myModal"></div></div>
+                    <div class="col-lg-3"><div class="main-r main-r-n" data-toggle="modal" data-target="#myModal2"></div></div>
+                    <div class="col-lg-3"><div class="main-r main-r-l" data-toggle="modal" data-target="#myModal"></div></div>
+                    <div class="col-lg-3"><div class="main-r main-r-n" data-toggle="modal" data-target="#myModal2"></div></div>
+                </div>
+                
+                <table class="table table-striped main-table">
+                       <thead>
+                           <tr>
+                            <th>111</th>
+                            <th>222</th>
+                            <th>333</th>
+                            <th>444</th>
+                           </tr>
+                       </thead>
+                        
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>2</td>
+                                <td>2</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>3</td>
+                                <td>3</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>4</td>
+                                <td>4</td>
+                                <td>4</td>
+                            </tr>
+                            
+                        </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+<!-- ------------------------------------------------------------------- -->
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">这是一个圆</h4>
+      </div>
+      <div class="modal-body">
+        <p>这是个蓝色的圆&hellip;</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-primary">保存</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade" id="myModal2">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">这是一个圆</h4>
+      </div>
+      <div class="modal-body">
+        <p>这是个天蓝色的圆&hellip;</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-primary">保存</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+</body>
+<script>
+   
+       $('#tck>li').mouseenter(function(){
+           $(this).popover('show');
+       });
+      $('#tck>li').mouseleave(function(){
+           $(this).popover('hide');
+       });
+    
+
+    $(".nav-l").mouseenter(function(){
+        $(this).children("ul").show(1000);
+    });
+         
+
+    
+    $(".nav-l").mouseleave(function(){
+        $(this).children("ul").hide(1000);
+    });
+    
+    $('#tck>li').mouseenter(function(){
+          $(this).animate({left:'30px'}).addClass("active");
+       });
+    $('#tck>li').mouseleave(function(){
+          $(this).animate({left:'-=30px'}).removeClass("active");
+       });
+    $(".main-r").mouseenter(function(){
+          $(this).animate({"width":'230px'},"slow");
+       });
+    $(".main-r").mouseleave(function(){
+          $(this).animate({"width":'200px'},"slow");
+       });
+</script>
+</html>

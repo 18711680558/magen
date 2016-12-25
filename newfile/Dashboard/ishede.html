@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+</head>
+<body>
+    <div class="container" id="gogo">
+        <form action="" class="form-horizontal" onsubmit="return false">
+           <div class="form-group">
+              <label for="username" class="col-sm-3 control-label">姓名</label>
+                  <div class="col-sm-4">
+                      <input type="text" class="form-control" id="username" placeholder="请输入姓名">
+                    <div hidden id="y" class="alert alert-danger alert-dismissible" role="alert">
+                      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                      <strong>错误：</strong> 名字必须为中文
+                    </div>
+                  </div>
+           </div>
+           <div class="form-group">
+              <label for="sex" class="col-sm-3 control-label">性别</label>
+                 <div class="col-sm-9">
+                      <label class="checkbox-inline">
+                          <input type="radio" name="sex" value="男">男
+                      </label>
+                      <label class="checkbox-inline">
+                          <input type="radio" name="sex" value="女">女
+                      </label>
+                 </div>
+           </div>
+           <div class="form-group">
+               <label for="hobby" class="col-sm-3 control-label">爱好</label>
+               <div class="col-sm-9" id="hobby">
+                   <label class="radio-inline">
+                      <input type="checkbox" name="favour"  value="足球">足球
+                   </label>
+                   <label class="radio-inline">
+                      <input type="checkbox" name="favour"  value="乒乓球">乒乓球
+                   </label>
+                   <label class="radio-inline">
+                      <input type="checkbox" name="favour" value="蓝球">篮球
+                   </label>
+                   <label class="radio-inline">
+                      <input type="checkbox" name="favour" value="羽毛球">羽毛球
+                   </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-2">
+                    <button class="btn btn-primary" id="btnSave">
+                        提交
+                    </button>
+                </div>
+            </div>
+        </form>
+        <div class="row">
+            <div class="col-sm-offset-2 col-sm-8">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <td>编号</td>
+                            <td>姓名</td>
+                            <td>性别</td>
+                            <td>爱好</td>
+                        </tr>
+                    </thead>
+                    <tbody  id="tbody"></tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-offset-5 col-sm-2">
+           <button type="button" class="btn btn-primary" id="show">显示</button>
+           <button type="button" class="btn btn-primary" id="hide">隐藏</button>
+    </div>
+
+    <style>
+      
+    </style>
+    <script>
+        $(document).ready(function() {
+                 $("#show").click(function(){
+                 $("#gogo").show(2000);
+                 });
+                 $("#hide").click(function(){
+                 $("#gogo").hide(2000);
+                 });
+            var num = 1
+            $('#btnSave').on('click', function() {
+                
+                
+                var username = $('#username').val(),
+                    hobby = $('#hobby').val(),
+                    sex = $('[name=sex]:checked').val(),
+                    hobby = $('[name=favour]:checked');
+                var hobbyVal = [];
+                for(var i =0; i < hobby.length; i++) {
+                    hobbyVal.push(hobby[i].value);
+                }
+                hobbyVal = hobbyVal.join("丶")
+                var row = $('<tr></tr>'),
+                    ntd = $('<td></td>').text(num),
+                    utd = $('<td></td>').text(username),
+                    std = $('<td></td>').text(sex),
+                    htd = $('<td></td>').text(hobbyVal);
+                row.appendTo('#tbody');
+                ntd.appendTo(row)
+                utd.appendTo(row)
+                std.appendTo(row)
+                htd.appendTo(row)
+                num ++;
+            })
+            
+//                (网站定时自动弹出的警告框)
+                setTimeout(function(){
+                alert("温馨提示：本网站纯属虚构");
+              },2000);
+            $("#btnSave").click(function(){
+                $("#y").show();
+            });
+        });
+//        $(document).ready(function(){
+//
+//        })
+    </script>
+</body>
+
+</html>
