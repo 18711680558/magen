@@ -1,0 +1,84 @@
+<style>
+        a:link,a:visited{
+          text-decoration:none;  /*超链接无下划线*/
+        }
+        .nav-row{
+            width: 1349px;
+            background-color: black; 
+            position: fixed;
+            z-index: 1; 
+        }
+        .nav-row-name{
+            height:50px;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 50px;
+        }
+        .nav-right-row{
+            height:50px;
+            line-height: 50px;
+            text-align: center;
+        }
+        .search{
+            height:30px;
+            border-radius: 6px;
+            outline: none;
+            border:0px;
+            text-indent: 5px;
+        }
+        .main-right{
+            width:100%;
+            height:auto;
+            border-bottom: 1px solid #ccc;
+            margin:0px auto;
+            margin-top:120px;
+        }
+        .main-r{
+           width:200px;
+           height:200px;
+           border-radius: 50%;
+           margin:0px auto;
+           margin-top:30px;
+        }
+        .main-r-l{
+            background-color: cornflowerblue;
+        }
+        .main-r-n{
+            background-color: aqua;
+        }
+        .main-table{
+            
+            margin-top:80px;
+        }
+        .col-left{
+            margin-top:50px;
+            padding: 0px 0px;
+        }
+        .list-left{
+            background-color: #ccc;
+            padding-top: 25px;
+            width:224px;
+            position: fixed;
+            z-index:1;
+        }
+        .list-left>li{
+           background-color: #ccc; 
+           border:none;
+            text-align: left;
+        }
+        .list-left>li:hover{
+            background-color: antiquewhite;
+        }
+        .nav-d{
+            width:60%;
+            padding: 0px;
+            position: absolute;
+            list-style: none;
+            background-color: black;
+            color: aqua;
+            text-align: center;
+        }
+        .nav-d li{
+            width:100%;
+        }
+    </style>

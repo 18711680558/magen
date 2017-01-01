@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>vue-plugins</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="src/home.css">
+  </head>
+  <body>
+       <div id="appRoot">
+
+       </div>
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script src="/dist/build.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script>
+          $('#tck>li').mouseenter(function(){
+          $(this).popover('show');
+           });
+          $('#tck>li').mouseleave(function(){
+          $(this).popover('hide');
+           });
+
+          $(".nav-l").mouseenter(function(){
+          $(this).children("ul").show(1000);
+           });
+
+          $(".nav-l").mouseleave(function(){
+          $(this).children("ul").hide(1000);
+           });
+    
+          $('#tck>li').mouseenter(function(){
+          $(this).animate({left:'10px'}).addClass("active");
+           });
+          $('#tck>li').mouseleave(function(){
+          $(this).animate({left:'-=10px'}).removeClass("active");
+           });
+          $(".main-r").mouseenter(function(){
+          $(this).animate({"width":'230px'},"slow");
+           });
+          $(".main-r").mouseleave(function(){
+          $(this).animate({"width":'200px'},"slow");
+           });   
+
+      </script>
+  </body>
+</html>
