@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="./jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/echarts/3.2.2/echarts.min.js"></script>
+    <script src="./vue.js"></script>
+<!--    <script src="http://echarts.baidu.com/asset/map/js/china.js"></script>-->
+
+</head>
+<body>
+       <div class="container">
+            <modal>
+                <span slot="title">对话框</span>
+                <div slot="body">
+                    <table class="table"> <caption>Optional table caption.</caption> <thead> <tr> <th>#</th> <th>First Name</th> <th>Last Name</th> <th>Username</th> </tr> </thead> <tbody> <tr> <th scope="row">1</th> <td>Mark</td> <td>Otto</td> <td>@mdo</td> </tr> <tr> <th scope="row">2</th> <td>Jacob</td> <td>Thornton</td> <td>@fat</td> </tr> <tr> <th scope="row">3</th> <td>Larry</td> <td>the Bird</td> <td>@twitter</td> </tr> </tbody> </table>
+                </div>
+            </modal>          
+           <H1> {{ message }}</H1>
+           <pie-chart :title="message" :data="[1, 2, 5]">
+               <h3 style="color:red">暂时没有数据</h3>             
+           </pie-chart>
+       </div>
+       <script type="text/template" id="pieChart">
+            <div class="pie-chart">
+                <h1 v-text="title" :style="{'color' : fontColor}"></h1>
+                <ul>
+                    <li v-for="i in data" v-text="i"></li>
+                </ul>
+                <slot>
+                    <h3 style="color:red">1233</h3> 
+                </slot>
+                <button @click="sayHello">点击</button>
+                <h2 v-text="jsonDatas"></h2>
+            </div>
+        </script>
+        <script type="text/template" id="panel">
+           <div class="modal in" tabindex="-1" role="dialog">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">
+                        <slot name="title"></slot>
+                    </h4>
+                  </div>
+                  <div class="modal-body">
+                    <slot name="body"></slot>
+                  </div>
+                </div><!-- /.modal-content -->
+              </div><!-- /.modal-dialog -->
+            </div>
+        </script>
+</body>
+<script>
+    //mixin
+    
+    Vue.component('modal', {
+        template : '#panel'        
+    })
+    var CrudMixin = {
+        
+        data () {
+            return {
+                username : '李林'
+            }
+        },
+        
+        methods : {
+            
+            sayHello () {
+                alert(this.username + "!")
+            }
+            
+        }
+        
+    }
+    
+    var PieChart = Vue.extend({
+        template : '#pieChart',
+        
+        mixins : [CrudMixin],
+        
+        props : {
+            title : {
+                type : String,
+                required : false,
+                default : function() {
+                    return '饼图'
+                }
+            },
+            
+            data : {
+                type : Array
+            }
+        },
+        
+        data () {
+            return {
+                fontColor : 'blue'
+            }
+        },
+        
+        watch : {
+            
+            title : function(val, oldVal) {
+                if(val % 2 === 0) {
+                    this.fontColor = 'blue'
+                } else {
+                    this.fontColor = 'red'
+                }
+                //
+                //  echarts.set
+            }
+            
+        },
+        
+        computed : {
+            jsonDatas () {
+                return JSON.stringify(this.data)
+            },
+            
+            color () {
+                return this.title % 2 === 0 ? 'blue' : 'red';
+            }
+        },
+        
+        ready () {
+            //  this.$watch('data', )
+        }
+    })
+    //  注册全局的组件
+    Vue.component('pie-chart', PieChart)
+    
+    var root = new Vue({
+        el : '.container', 
+        data : {
+            message : '0'
+        }
+    });
+    var counter = 1;
+    setInterval(function() {
+        root.message = counter + ''
+        counter ++
+    }, 2000)
+    
+    
+</script>
+</html>
